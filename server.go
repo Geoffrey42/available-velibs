@@ -11,8 +11,8 @@ import (
 )
 
 var (
-	mutex          sync.RWMutex
-	availableBikes int32
+	mutex   sync.RWMutex
+	results GlobalResponse
 )
 
 type geofilter struct {
@@ -21,21 +21,39 @@ type geofilter struct {
 	distance string
 }
 
+// Fields gathers data for a single station
+// NumBikesAvailable: number of available bikes in this station
+// CoordonneesGeo: station coordinates
+type Fields struct {
+	NumBikesAvailable int       `json:"numbikesavailable"`
+	CoordonneesGeo    []float64 `json:"coordonnees_geo"`
+}
+
+// Records is a placeholder for station data
+type Records struct {
+	Fields Fields `json:"fields"`
+}
+
 // GlobalResponse gathers relevant data from opendata.paris
 // Total : total number of available bikes
 // NHits : number of stations in the area
-// Records.Fields: data per station
-// Records.Fields.NumBikesAvailable: number of available bikes in this station
-// Records.Fields.CoordonneesGeo: station coordinates
+// Records: results for each station
 type GlobalResponse struct {
 	Total   int
-	NHits   int `json:"nhits"`
-	Records []struct {
-		Fields struct {
-			NumBikesAvailable int32     `json:"numbikesavailable"`
-			CoordonneesGeo    []float64 `json:"coordonnees_geo"`
-		} `json:"fields"`
-	} `json:"records"`
+	NHits   int       `json:"nhits"`
+	Records []Records `json:"records"`
+}
+
+// Sum get a sum of every NumBikesAvailable
+// in a Records slice. See GlobalResponse type.
+func (g *GlobalResponse) Sum() {
+	sum := 0
+
+	for _, v := range g.Records {
+		sum += v.Fields.NumBikesAvailable
+	}
+
+	g.Total = sum
 }
 
 func fetchAvailableVelibsEndlessly(geofilter geofilter) {
@@ -53,14 +71,14 @@ func fetchAvailableVelibsEndlessly(geofilter geofilter) {
 
 		log.Println("Response status:", response.Status)
 
-		encoded := GlobalResponse{}
-
-		err = json.NewDecoder(response.Body).Decode(&encoded)
+		err = json.NewDecoder(response.Body).Decode(&results)
 		if err != nil {
 			log.Fatalf("could not encode opendata response to json: %v", err)
 		}
 
-		fmt.Printf("response:\n%+v", encoded)
+		results.Sum()
+
+		fmt.Printf("response:\n%+v", results)
 
 		mutex.Unlock()
 
@@ -78,7 +96,7 @@ func main() {
 		mutex.RLock()
 		defer mutex.RUnlock()
 
-		fmt.Fprint(w, availableBikes)
+		fmt.Fprint(w, results)
 	})
 
 	if err := http.ListenAndServe(":4242", handler); err != nil {
