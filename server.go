@@ -21,7 +21,14 @@ type geofilter struct {
 	distance string
 }
 
-type globalResponse struct {
+// GlobalResponse gathers relevant data from opendata.paris
+// Total : total number of available bikes
+// NHits : number of stations in the area
+// Records.Fields: data per station
+// Records.Fields.NumBikesAvailable: number of available bikes in this station
+// Records.Fields.CoordonneesGeo: station coordinates
+type GlobalResponse struct {
+	Total   int
 	NHits   int `json:"nhits"`
 	Records []struct {
 		Fields struct {
@@ -46,7 +53,7 @@ func fetchAvailableVelibsEndlessly(geofilter geofilter) {
 
 		log.Println("Response status:", response.Status)
 
-		encoded := globalResponse{}
+		encoded := GlobalResponse{}
 
 		err = json.NewDecoder(response.Body).Decode(&encoded)
 		if err != nil {
