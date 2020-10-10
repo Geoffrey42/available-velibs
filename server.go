@@ -1,11 +1,12 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
+	"io"
 	"log"
 	"net/http"
 	"net/url"
+	"strings"
 	"sync"
 	"time"
 )
@@ -36,13 +37,13 @@ func fetchAvailableVelibsEndlessly(geofilter geofilter) {
 
 		log.Println("Response status:", response.Status)
 
-		scanner := bufio.NewScanner(response.Body)
-		for i := 0; scanner.Scan() && i < 5; i++ {
-			fmt.Println(scanner.Text())
+		buf := new(strings.Builder)
+		_, err = io.Copy(buf, response.Body)
+		if err != nil {
+			log.Fatalf("could not convert response body to string: %v", err)
 		}
-		if err := scanner.Err(); err != nil {
-			panic(err)
-		}
+
+		fmt.Println(buf.String())
 
 		mutex.Unlock()
 
