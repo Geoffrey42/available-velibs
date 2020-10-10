@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"net/url"
 	"sync"
 	"time"
 )
@@ -14,10 +15,20 @@ var (
 	availableBikes int32
 )
 
-func fetchAvailableVelibsEndlessly() {
+type geofilter struct {
+	lat      string
+	lng      string
+	distance string
+}
+
+func fetchAvailableVelibsEndlessly(geofilter geofilter) {
+
+	geofilterValue := url.QueryEscape(geofilter.lat + ", " + geofilter.lng + ", " + geofilter.distance)
+	openDataURL := "https://opendata.paris.fr/api/records/1.0/search/?dataset=velib-disponibilite-en-temps-reel&q=&geofilter.distance=" + geofilterValue
+
 	for {
 		mutex.Lock()
-		response, err := http.Get("https://opendata.paris.fr/api/records/1.0/search/?dataset=velib-disponibilite-en-temps-reel&q=&geofilter.distance=48.8819732984%2C+2.30113215744%2C+500")
+		response, err := http.Get(openDataURL)
 		if err != nil {
 			log.Fatalf("could not fetch data from opendata.paris: %v", err)
 		}
@@ -41,7 +52,9 @@ func fetchAvailableVelibsEndlessly() {
 
 func main() {
 
-	go fetchAvailableVelibsEndlessly()
+	splioHQ := geofilter{lat: "48.8819732984", lng: "2.30113215744", distance: "500"}
+
+	go fetchAvailableVelibsEndlessly(splioHQ)
 
 	handler := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		mutex.RLock()
