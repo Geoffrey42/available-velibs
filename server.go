@@ -1,12 +1,11 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
-	"io"
 	"log"
 	"net/http"
 	"net/url"
-	"strings"
 	"sync"
 	"time"
 )
@@ -20,6 +19,16 @@ type geofilter struct {
 	lat      string
 	lng      string
 	distance string
+}
+
+type globalResponse struct {
+	NHits   int `json:"nhits"`
+	Records []struct {
+		Fields struct {
+			NumBikesAvailable int32     `json:"numbikesavailable"`
+			CoordonneesGeo    []float64 `json:"coordonnees_geo"`
+		} `json:"fields"`
+	} `json:"records"`
 }
 
 func fetchAvailableVelibsEndlessly(geofilter geofilter) {
@@ -37,13 +46,14 @@ func fetchAvailableVelibsEndlessly(geofilter geofilter) {
 
 		log.Println("Response status:", response.Status)
 
-		buf := new(strings.Builder)
-		_, err = io.Copy(buf, response.Body)
+		encoded := globalResponse{}
+
+		err = json.NewDecoder(response.Body).Decode(&encoded)
 		if err != nil {
-			log.Fatalf("could not convert response body to string: %v", err)
+			log.Fatalf("could not encode opendata response to json: %v", err)
 		}
 
-		fmt.Println(buf.String())
+		fmt.Printf("response:\n%+v", encoded)
 
 		mutex.Unlock()
 
