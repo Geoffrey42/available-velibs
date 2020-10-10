@@ -78,8 +78,6 @@ func fetchAvailableVelibsEndlessly(geofilter geofilter) {
 
 		results.Sum()
 
-		fmt.Printf("response:\n%+v", results)
-
 		mutex.Unlock()
 
 		time.Sleep(1 * time.Minute)
@@ -92,14 +90,12 @@ func main() {
 
 	go fetchAvailableVelibsEndlessly(splioHQ)
 
-	handler := http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/api/fetch", func(w http.ResponseWriter, r *http.Request) {
 		mutex.RLock()
 		defer mutex.RUnlock()
 
 		fmt.Fprint(w, results)
 	})
 
-	if err := http.ListenAndServe(":4242", handler); err != nil {
-		log.Fatalf("could not listen on port 4242 %v", err)
-	}
+	log.Fatal(http.ListenAndServe(":4242", nil))
 }
