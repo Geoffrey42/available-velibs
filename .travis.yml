@@ -1,0 +1,21 @@
+language: go
+python:
+  - "1.15"
+
+git:
+  depth: false
+
+before_install:
+    - wget -O /tmp/gommit https://github.com/antham/gommit/releases/download/v2.2.0/gommit_linux_386
+    - chmod 777 /tmp/gommit
+jobs:
+  include:
+    - name: "Check commits"
+      script: perl .test-branch-commit-messages-in-travis.pl
+    - name: "Unit tests"
+      script: go test
+    - name: "Build"
+      script: "docker-compose up -d"
+branches:
+  only:
+  - main
