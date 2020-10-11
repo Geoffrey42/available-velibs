@@ -15,14 +15,12 @@ function ResultsTable() {
             try {
                 const response = await axios(url);
 
-                console.log("response.data: ", response.data);
-
                 setRecords(response.data.records);
                 setHits(response.data.nhits);
                 setTotal(response.data.total);
                 setDistance(response.data.Distance);
 
-            } catch(err) {
+            } catch (err) {
                 console.error("Could not fetch backend server: ", err);
             }
         }, 1000);
@@ -39,18 +37,23 @@ function ResultsTable() {
                 </Table.Row>
             </Table.Header>
             <Table.Body>
-                <Table.Row>
-                    <Table.Cell>
-                        <Header as='h4'>
-                            <Header.Content>
-                                [STATION NAME] station
+                {records.map((record, key) => {
+
+                    return (
+                        <Table.Row key={key}>
+                            <Table.Cell>
+                                <Header as='h4'>
+                                    <Header.Content>
+                                        {record.fields.name}'s station
                                 <Header.Subheader>
-                                    Available velibs: [NUMBER]
+                                            Available velibs: {record.fields.numbikesavailable}
                                 </Header.Subheader>
-                            </Header.Content>
-                        </Header>
-                    </Table.Cell>
-                </Table.Row>
+                                    </Header.Content>
+                                </Header>
+                            </Table.Cell>
+                        </Table.Row>
+                    )
+                })}
             </Table.Body>
         </Table>
     );
