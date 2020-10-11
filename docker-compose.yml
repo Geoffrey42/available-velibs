@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+    client:
+      build:
+        context: ./client/
+        args:
+          - HTTP_PROXY=${HTTP_PROXY}
+          - HTTPS_PROXY=${HTTPS_PROXY}
+      ports:
+        - "${CLIENT_PORT}:3000"
+      image: av-client-img
+      stdin_open: true
+      container_name: av-client
+
+    server:
+      build:
+        context: ./server/
+        args:
+          - HTTP_PROXY=${HTTP_PROXY}
+          - HTTPS_PROXY=${HTTPS_PROXY}
+      ports:
+        - "${SERVER_PORT}:4242"
+      image: av-server-img
+      container_name: av-server
