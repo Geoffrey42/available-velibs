@@ -3,3 +3,6 @@ hooks:
 
 commit:
 	@gommit check range HEAD~2 HEAD
+
+ps:
+	@docker-compose ps
