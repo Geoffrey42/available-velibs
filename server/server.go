@@ -7,6 +7,7 @@ import (
 	"log"
 	"net/http"
 	"net/url"
+	"strconv"
 	"sync"
 	"time"
 
@@ -44,9 +45,10 @@ type Records struct {
 // NHits : number of stations in the area
 // Records: results for each station
 type GlobalResponse struct {
-	Total   int
-	NHits   int       `json:"nhits"`
-	Records []Records `json:"records"`
+	Distance int       `json:distance`
+	Total    int       `json:"total"`
+	NHits    int       `json:"nhits"`
+	Records  []Records `json:"records"`
 }
 
 // Sum get a sum of every NumBikesAvailable
@@ -79,6 +81,11 @@ func fetchAvailableVelibsEndlessly(geofilter geofilter) {
 		err = json.NewDecoder(response.Body).Decode(&results)
 		if err != nil {
 			log.Fatalf("could not encode opendata response to json: %v", err)
+		}
+
+		results.Distance, err = strconv.Atoi(geofilter.distance)
+		if err != nil {
+			log.Fatalf("could not convert distance to int: %v", err)
 		}
 
 		results.Sum()
