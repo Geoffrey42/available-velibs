@@ -13,7 +13,7 @@ jobs:
     - name: "Check commits"
       script: perl .test-branch-commit-messages-in-travis.pl
     - name: "Unit tests"
-      script: go test
+      script: cd server && go test
     - name: "Build"
       script: "docker-compose up -d"
 branches:
