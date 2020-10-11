@@ -7,8 +7,11 @@ import (
 	"log"
 	"net/http"
 	"net/url"
+	"strconv"
 	"sync"
 	"time"
+
+	"github.com/rs/cors"
 )
 
 var (
@@ -42,9 +45,10 @@ type Records struct {
 // NHits : number of stations in the area
 // Records: results for each station
 type GlobalResponse struct {
-	Total   int
-	NHits   int       `json:"nhits"`
-	Records []Records `json:"records"`
+	Distance int       `json:distance`
+	Total    int       `json:"total"`
+	NHits    int       `json:"nhits"`
+	Records  []Records `json:"records"`
 }
 
 // Sum get a sum of every NumBikesAvailable
@@ -79,6 +83,11 @@ func fetchAvailableVelibsEndlessly(geofilter geofilter) {
 			log.Fatalf("could not encode opendata response to json: %v", err)
 		}
 
+		results.Distance, err = strconv.Atoi(geofilter.distance)
+		if err != nil {
+			log.Fatalf("could not convert distance to int: %v", err)
+		}
+
 		results.Sum()
 
 		mutex.Unlock()
@@ -93,7 +102,8 @@ func main() {
 
 	go fetchAvailableVelibsEndlessly(splioHQ)
 
-	http.HandleFunc("/api/fetch", func(w http.ResponseWriter, r *http.Request) {
+	mux := http.NewServeMux()
+	mux.HandleFunc("/api/fetch", func(w http.ResponseWriter, r *http.Request) {
 		mutex.RLock()
 		defer mutex.RUnlock()
 
@@ -103,5 +113,6 @@ func main() {
 		fmt.Fprint(w, buffer.String())
 	})
 
-	log.Fatal(http.ListenAndServe(":4242", nil))
+	handler := cors.Default().Handler(mux)
+	log.Fatal(http.ListenAndServe(":4242", handler))
 }

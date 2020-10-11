@@ -31,4 +31,4 @@ To do so, we will use the public data set of Vélib' stations availabilities: [h
 - [ ] The project must be sent in zip format
 - [ ] Do not hesitate to send all the necessary details to understand your code.
 
-French original assignment can be found [here](./docs/Splio_-_Go_Tech_Homework_-_fr.pdf).
+Original assignment (in french) can be found [here](./docs/Splio_-_Go_Tech_Homework_-_fr.pdf).
