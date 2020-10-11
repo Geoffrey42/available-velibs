@@ -26,7 +26,7 @@ To do so, we will use the public data set of Vélib' stations availabilities: [h
 
 ### Tasks
 
-- [ ] The project will be written in Go with or without a framework
+- [x] The project will be written in Go with or without a framework
 - [ ] The results can be displayed in the application's console (for the most advanced version) or in an html page (for the most advanced)
 - [ ] The project must be sent in zip format
 - [ ] Do not hesitate to send all the necessary details to understand your code.
