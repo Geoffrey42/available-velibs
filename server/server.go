@@ -8,15 +8,9 @@ import (
 	"net/http"
 	"net/url"
 	"strconv"
-	"sync"
 	"time"
 
 	"github.com/rs/cors"
-)
-
-var (
-	mutex   sync.RWMutex
-	results GlobalResponse
 )
 
 type geofilter struct {
@@ -63,13 +57,13 @@ func (g *GlobalResponse) Sum() {
 	g.Total = sum
 }
 
-func fetchAvailableVelibsEndlessly(geofilter geofilter) {
+func fetchAvailableVelibsEndlessly(c chan GlobalResponse) {
 
-	geofilterValue := url.QueryEscape(geofilter.lat + ", " + geofilter.lng + ", " + geofilter.distance)
+	searchArea := geofilter{lat: "48.8819732984", lng: "2.30113215744", distance: "500"}
+	geofilterValue := url.QueryEscape(searchArea.lat + ", " + searchArea.lng + ", " + searchArea.distance)
 	openDataURL := "https://opendata.paris.fr/api/records/1.0/search/?dataset=velib-disponibilite-en-temps-reel&q=&geofilter.distance=" + geofilterValue
 
 	for {
-		mutex.Lock()
 		response, err := http.Get(openDataURL)
 		if err != nil {
 			log.Fatalf("could not fetch data from opendata.paris: %v", err)
@@ -78,19 +72,20 @@ func fetchAvailableVelibsEndlessly(geofilter geofilter) {
 
 		log.Println("Response status:", response.Status)
 
+		var results GlobalResponse
 		err = json.NewDecoder(response.Body).Decode(&results)
 		if err != nil {
 			log.Fatalf("could not encode opendata response to json: %v", err)
 		}
 
-		results.Distance, err = strconv.Atoi(geofilter.distance)
+		results.Distance, err = strconv.Atoi(searchArea.distance)
 		if err != nil {
 			log.Fatalf("could not convert distance to int: %v", err)
 		}
 
 		results.Sum()
 
-		mutex.Unlock()
+		c <- results
 
 		time.Sleep(1 * time.Minute)
 	}
@@ -98,21 +93,20 @@ func fetchAvailableVelibsEndlessly(geofilter geofilter) {
 
 func main() {
 
-	splioHQ := geofilter{lat: "48.8819732984", lng: "2.30113215744", distance: "500"}
+	c := make(chan GlobalResponse)
 
-	go fetchAvailableVelibsEndlessly(splioHQ)
+	go fetchAvailableVelibsEndlessly(c)
 
 	mux := http.NewServeMux()
 	mux.HandleFunc("/api/fetch", func(w http.ResponseWriter, r *http.Request) {
-		mutex.RLock()
-		defer mutex.RUnlock()
 
 		var buffer bytes.Buffer
+		results := <-c
 		json.NewEncoder(&buffer).Encode(&results)
 
 		fmt.Fprint(w, buffer.String())
 	})
 
-	handler := cors.Default().Handler(mux)
-	log.Fatal(http.ListenAndServe(":4242", handler))
+	corsHandler := cors.Default().Handler(mux)
+	log.Fatal(http.ListenAndServe(":4242", corsHandler))
 }
