@@ -1,0 +1,97 @@
+{
+    "Distance": 500,
+    "total": 58,
+    "nhits": 9,
+    "records": [
+        {
+            "fields": {
+                "name": "Jouffroy d'Abbans - Wagram",
+                "numbikesavailable": 7,
+                "coordonnees_geo": [
+                    48.8819732984,
+                    2.30113215744
+                ]
+            }
+        },
+        {
+            "fields": {
+                "name": "Courcelles - Pierre Demours",
+                "numbikesavailable": 7,
+                "coordonnees_geo": [
+                    48.8837697333,
+                    2.29858466343
+                ]
+            }
+        },
+        {
+            "fields": {
+                "name": "Chazelles - Courcelles",
+                "numbikesavailable": 2,
+                "coordonnees_geo": [
+                    48.879406605,
+                    2.30344556272
+                ]
+            }
+        },
+        {
+            "fields": {
+                "name": "Jouffroy d'Abbans - Villiers",
+                "numbikesavailable": 4,
+                "coordonnees_geo": [
+                    48.884215547,
+                    2.30565335602
+                ]
+            }
+        },
+        {
+            "fields": {
+                "name": "Place du Maréchal Juin - Péreire",
+                "numbikesavailable": 9,
+                "coordonnees_geo": [
+                    48.885263,
+                    2.298286
+                ]
+            }
+        },
+        {
+            "fields": {
+                "name": "Courcelles - Place des Ternes",
+                "numbikesavailable": 8,
+                "coordonnees_geo": [
+                    48.8781999289,
+                    2.29928601887
+                ]
+            }
+        },
+        {
+            "fields": {
+                "name": "Place des Ternes",
+                "numbikesavailable": 9,
+                "coordonnees_geo": [
+                    48.8784386312,
+                    2.29772776365
+                ]
+            }
+        },
+        {
+            "fields": {
+                "name": "Pierre Demours - Laugier",
+                "numbikesavailable": 6,
+                "coordonnees_geo": [
+                    48.8813072,
+                    2.294846
+                ]
+            }
+        },
+        {
+            "fields": {
+                "name": "Pereire - Rennequin",
+                "numbikesavailable": 6,
+                "coordonnees_geo": [
+                    48.8836478289,
+                    2.29524470866
+                ]
+            }
+        }
+    ]
+}
