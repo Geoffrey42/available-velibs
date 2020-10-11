@@ -9,6 +9,8 @@ import (
 	"net/url"
 	"sync"
 	"time"
+
+	"github.com/rs/cors"
 )
 
 var (
@@ -93,7 +95,8 @@ func main() {
 
 	go fetchAvailableVelibsEndlessly(splioHQ)
 
-	http.HandleFunc("/api/fetch", func(w http.ResponseWriter, r *http.Request) {
+	mux := http.NewServeMux()
+	mux.HandleFunc("/api/fetch", func(w http.ResponseWriter, r *http.Request) {
 		mutex.RLock()
 		defer mutex.RUnlock()
 
@@ -103,5 +106,6 @@ func main() {
 		fmt.Fprint(w, buffer.String())
 	})
 
-	log.Fatal(http.ListenAndServe(":4242", nil))
+	handler := cors.Default().Handler(mux)
+	log.Fatal(http.ListenAndServe(":4242", handler))
 }
