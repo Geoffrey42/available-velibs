@@ -19,3 +19,4 @@ jobs:
 branches:
   only:
   - main
+  - ci/Add_CI_CD_pipeline
