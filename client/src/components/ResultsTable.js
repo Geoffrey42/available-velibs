@@ -1,7 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Header, Table } from 'semantic-ui-react';
+import axios from 'axios';
+
+const url = "http://localhost:4242/api/fetch"
 
 function ResultsTable() {
+    useEffect(() => {
+        const interval = setInterval(async () => {
+            try {
+                const response = await axios(url);
+
+                console.log("response: ", response);
+            } catch(err) {
+                console.error("Could not fetch backend server: ", err);
+            }
+        }, 1000);
+        return () => clearInterval(interval);
+    });
+
     return (
         <Table>
             <Table.Header>
