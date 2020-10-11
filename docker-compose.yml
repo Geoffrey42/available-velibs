@@ -23,3 +23,8 @@ services:
         - "${SERVER_PORT}:4242"
       image: av-server-img
       container_name: av-server
+      logging:
+        driver: "json-file"
+        options:
+          max-size: "200k"
+          max-file: "1"
