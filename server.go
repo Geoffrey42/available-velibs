@@ -23,9 +23,11 @@ type geofilter struct {
 }
 
 // Fields gathers data for a single station
+// Name: Velib's station name
 // NumBikesAvailable: number of available bikes in this station
 // CoordonneesGeo: station coordinates
 type Fields struct {
+	Name              string    `json:"name"`
 	NumBikesAvailable int       `json:"numbikesavailable"`
 	CoordonneesGeo    []float64 `json:"coordonnees_geo"`
 }
