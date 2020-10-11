@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"log"
@@ -94,7 +95,10 @@ func main() {
 		mutex.RLock()
 		defer mutex.RUnlock()
 
-		fmt.Fprint(w, results)
+		var buffer bytes.Buffer
+		json.NewEncoder(&buffer).Encode(&results)
+
+		fmt.Fprint(w, buffer.String())
 	})
 
 	log.Fatal(http.ListenAndServe(":4242", nil))
