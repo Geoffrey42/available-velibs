@@ -1,1 +1,294 @@
-{"nhits": 9, "parameters": {"dataset": "velib-disponibilite-en-temps-reel", "timezone": "UTC", "rows": 10, "start": 0, "format": "json", "geofilter.distance": ["48.8819732984, 2.30113215744, 500"]}, "records": [{"datasetid": "velib-disponibilite-en-temps-reel", "recordid": "5b6ae3627e67c0d6f829337edaa14c8d8a48cf62", "fields": {"ebike": 0, "capacity": 40, "name": "Jouffroy d'Abbans - Wagram", "nom_arrondissement_communes": "Paris", "numbikesavailable": 5, "is_installed": "OUI", "is_renting": "OUI", "mechanical": 5, "stationcode": "17026", "dist": "0.0", "coordonnees_geo": [48.8819732984, 2.30113215744], "numdocksavailable": 35, "duedate": "2020-10-10T20:05:45+00:00", "is_returning": "OUI"}, "geometry": {"type": "Point", "coordinates": [2.30113215744, 48.8819732984]}, "record_timestamp": "2020-10-10T20:44:08.093000+00:00"}, {"datasetid": "velib-disponibilite-en-temps-reel", "recordid": "99621fefef62234ef8b13770a6bd64c7ff804003", "fields": {"ebike": 3, "capacity": 26, "name": "Courcelles - Pierre Demours", "nom_arrondissement_communes": "Paris", "numbikesavailable": 4, "is_installed": "OUI", "is_renting": "OUI", "mechanical": 1, "stationcode": "17047", "dist": "273.131629832", "coordonnees_geo": [48.8837697333, 2.29858466343], "numdocksavailable": 22, "duedate": "2020-10-10T20:04:26+00:00", "is_returning": "OUI"}, "geometry": {"type": "Point", "coordinates": [2.29858466343, 48.8837697333]}, "record_timestamp": "2020-10-10T20:44:08.093000+00:00"}, {"datasetid": "velib-disponibilite-en-temps-reel", "recordid": "6c8502ec03e5bb0c9e52faf4af75d02b3a5e4bae", "fields": {"ebike": 2, "capacity": 35, "name": "Chazelles - Courcelles", "nom_arrondissement_communes": "Paris", "numbikesavailable": 5, "is_installed": "OUI", "is_renting": "OUI", "mechanical": 3, "stationcode": "17025", "dist": "331.770334078", "coordonnees_geo": [48.879406605, 2.30344556272], "numdocksavailable": 30, "duedate": "2020-10-10T20:05:15+00:00", "is_returning": "OUI"}, "geometry": {"type": "Point", "coordinates": [2.30344556272, 48.879406605]}, "record_timestamp": "2020-10-10T20:44:08.093000+00:00"}, {"datasetid": "velib-disponibilite-en-temps-reel", "recordid": "fd5d42e728053645f5d4dd313f442ea87d3f1925", "fields": {"ebike": 1, "capacity": 34, "name": "Jouffroy d'Abbans - Villiers", "nom_arrondissement_communes": "Paris", "numbikesavailable": 3, "is_installed": "OUI", "is_renting": "OUI", "mechanical": 2, "stationcode": "17021", "dist": "414.075462791", "coordonnees_geo": [48.884215547, 2.30565335602], "numdocksavailable": 31, "duedate": "2020-10-10T20:06:40+00:00", "is_returning": "OUI"}, "geometry": {"type": "Point", "coordinates": [2.30565335602, 48.884215547]}, "record_timestamp": "2020-10-10T20:44:08.093000+00:00"}, {"datasetid": "velib-disponibilite-en-temps-reel", "recordid": "71fd66dfcfd7a7a343f6cf04a1f78b67d9738c07", "fields": {"ebike": 12, "capacity": 46, "name": "Place du Mar\u00e9chal Juin - P\u00e9reire", "nom_arrondissement_communes": "Paris", "numbikesavailable": 18, "is_installed": "OUI", "is_renting": "OUI", "mechanical": 6, "stationcode": "17027", "dist": "420.855216431", "coordonnees_geo": [48.885263, 2.298286], "numdocksavailable": 28, "duedate": "2020-10-10T20:06:47+00:00", "is_returning": "OUI"}, "geometry": {"type": "Point", "coordinates": [2.298286, 48.885263]}, "record_timestamp": "2020-10-10T20:44:08.093000+00:00"}, {"datasetid": "velib-disponibilite-en-temps-reel", "recordid": "8e1d4c7336414f44bfa635fa122084a06e8ccc9f", "fields": {"ebike": 1, "capacity": 31, "name": "Courcelles - Place des Ternes", "nom_arrondissement_communes": "Paris", "numbikesavailable": 2, "is_installed": "OUI", "is_renting": "OUI", "mechanical": 1, "stationcode": "8055", "dist": "440.768573614", "coordonnees_geo": [48.8781999289, 2.29928601887], "numdocksavailable": 29, "duedate": "2020-10-10T20:06:46+00:00", "is_returning": "OUI"}, "geometry": {"type": "Point", "coordinates": [2.29928601887, 48.8781999289]}, "record_timestamp": "2020-10-10T20:44:08.093000+00:00"}, {"datasetid": "velib-disponibilite-en-temps-reel", "recordid": "40f5594b439f92542860cef47f56828267253da1", "fields": {"ebike": 5, "capacity": 46, "name": "Place des Ternes", "nom_arrondissement_communes": "Paris", "numbikesavailable": 8, "is_installed": "OUI", "is_renting": "OUI", "mechanical": 3, "stationcode": "17045", "dist": "465.25146712", "coordonnees_geo": [48.8784386312, 2.29772776365], "numdocksavailable": 38, "duedate": "2020-10-10T20:06:13+00:00", "is_returning": "OUI"}, "geometry": {"type": "Point", "coordinates": [2.29772776365, 48.8784386312]}, "record_timestamp": "2020-10-10T20:44:08.093000+00:00"}, {"datasetid": "velib-disponibilite-en-temps-reel", "recordid": "d562b678332b382cfb86d7e0a2516badb1f36cb0", "fields": {"ebike": 10, "capacity": 37, "name": "Pierre Demours - Laugier", "nom_arrondissement_communes": "Paris", "numbikesavailable": 18, "is_installed": "OUI", "is_renting": "OUI", "mechanical": 8, "stationcode": "17029", "dist": "465.59781002", "coordonnees_geo": [48.8813072, 2.294846], "numdocksavailable": 19, "duedate": "2020-10-10T20:06:28+00:00", "is_returning": "OUI"}, "geometry": {"type": "Point", "coordinates": [2.294846, 48.8813072]}, "record_timestamp": "2020-10-10T20:44:08.093000+00:00"}, {"datasetid": "velib-disponibilite-en-temps-reel", "recordid": "54ccbd7b3660995d6d1674059620c9adb96ac476", "fields": {"ebike": 1, "capacity": 23, "name": "Pereire - Rennequin", "nom_arrondissement_communes": "Paris", "numbikesavailable": 8, "is_installed": "OUI", "is_renting": "OUI", "mechanical": 7, "stationcode": "17030", "dist": "469.042767389", "coordonnees_geo": [48.8836478289, 2.29524470866], "numdocksavailable": 15, "duedate": "2020-10-10T20:02:34+00:00", "is_returning": "OUI"}, "geometry": {"type": "Point", "coordinates": [2.29524470866, 48.8836478289]}, "record_timestamp": "2020-10-10T20:44:08.093000+00:00"}]}
+{
+  "nhits": 9,
+  "parameters": {
+    "dataset": "velib-disponibilite-en-temps-reel",
+    "timezone": "UTC",
+    "rows": 10,
+    "start": 0,
+    "format": "json",
+    "geofilter.distance": [
+      "48.8819732984, 2.30113215744, 500"
+    ]
+  },
+  "records": [
+    {
+      "datasetid": "velib-disponibilite-en-temps-reel",
+      "recordid": "5b6ae3627e67c0d6f829337edaa14c8d8a48cf62",
+      "fields": {
+        "ebike": 0,
+        "capacity": 40,
+        "name": "Jouffroy d'Abbans - Wagram",
+        "nom_arrondissement_communes": "Paris",
+        "numbikesavailable": 5,
+        "is_installed": "OUI",
+        "is_renting": "OUI",
+        "mechanical": 5,
+        "stationcode": "17026",
+        "dist": "0.0",
+        "coordonnees_geo": [
+          48.8819732984,
+          2.30113215744
+        ],
+        "numdocksavailable": 35,
+        "duedate": "2020-10-10T20:05:45+00:00",
+        "is_returning": "OUI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.30113215744,
+          48.8819732984
+        ]
+      },
+      "record_timestamp": "2020-10-10T20:44:08.093000+00:00"
+    },
+    {
+      "datasetid": "velib-disponibilite-en-temps-reel",
+      "recordid": "99621fefef62234ef8b13770a6bd64c7ff804003",
+      "fields": {
+        "ebike": 3,
+        "capacity": 26,
+        "name": "Courcelles - Pierre Demours",
+        "nom_arrondissement_communes": "Paris",
+        "numbikesavailable": 4,
+        "is_installed": "OUI",
+        "is_renting": "OUI",
+        "mechanical": 1,
+        "stationcode": "17047",
+        "dist": "273.131629832",
+        "coordonnees_geo": [
+          48.8837697333,
+          2.29858466343
+        ],
+        "numdocksavailable": 22,
+        "duedate": "2020-10-10T20:04:26+00:00",
+        "is_returning": "OUI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.29858466343,
+          48.8837697333
+        ]
+      },
+      "record_timestamp": "2020-10-10T20:44:08.093000+00:00"
+    },
+    {
+      "datasetid": "velib-disponibilite-en-temps-reel",
+      "recordid": "6c8502ec03e5bb0c9e52faf4af75d02b3a5e4bae",
+      "fields": {
+        "ebike": 2,
+        "capacity": 35,
+        "name": "Chazelles - Courcelles",
+        "nom_arrondissement_communes": "Paris",
+        "numbikesavailable": 5,
+        "is_installed": "OUI",
+        "is_renting": "OUI",
+        "mechanical": 3,
+        "stationcode": "17025",
+        "dist": "331.770334078",
+        "coordonnees_geo": [
+          48.879406605,
+          2.30344556272
+        ],
+        "numdocksavailable": 30,
+        "duedate": "2020-10-10T20:05:15+00:00",
+        "is_returning": "OUI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.30344556272,
+          48.879406605
+        ]
+      },
+      "record_timestamp": "2020-10-10T20:44:08.093000+00:00"
+    },
+    {
+      "datasetid": "velib-disponibilite-en-temps-reel",
+      "recordid": "fd5d42e728053645f5d4dd313f442ea87d3f1925",
+      "fields": {
+        "ebike": 1,
+        "capacity": 34,
+        "name": "Jouffroy d'Abbans - Villiers",
+        "nom_arrondissement_communes": "Paris",
+        "numbikesavailable": 3,
+        "is_installed": "OUI",
+        "is_renting": "OUI",
+        "mechanical": 2,
+        "stationcode": "17021",
+        "dist": "414.075462791",
+        "coordonnees_geo": [
+          48.884215547,
+          2.30565335602
+        ],
+        "numdocksavailable": 31,
+        "duedate": "2020-10-10T20:06:40+00:00",
+        "is_returning": "OUI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.30565335602,
+          48.884215547
+        ]
+      },
+      "record_timestamp": "2020-10-10T20:44:08.093000+00:00"
+    },
+    {
+      "datasetid": "velib-disponibilite-en-temps-reel",
+      "recordid": "71fd66dfcfd7a7a343f6cf04a1f78b67d9738c07",
+      "fields": {
+        "ebike": 12,
+        "capacity": 46,
+        "name": "Place du Maréchal Juin - Péreire",
+        "nom_arrondissement_communes": "Paris",
+        "numbikesavailable": 18,
+        "is_installed": "OUI",
+        "is_renting": "OUI",
+        "mechanical": 6,
+        "stationcode": "17027",
+        "dist": "420.855216431",
+        "coordonnees_geo": [
+          48.885263,
+          2.298286
+        ],
+        "numdocksavailable": 28,
+        "duedate": "2020-10-10T20:06:47+00:00",
+        "is_returning": "OUI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.298286,
+          48.885263
+        ]
+      },
+      "record_timestamp": "2020-10-10T20:44:08.093000+00:00"
+    },
+    {
+      "datasetid": "velib-disponibilite-en-temps-reel",
+      "recordid": "8e1d4c7336414f44bfa635fa122084a06e8ccc9f",
+      "fields": {
+        "ebike": 1,
+        "capacity": 31,
+        "name": "Courcelles - Place des Ternes",
+        "nom_arrondissement_communes": "Paris",
+        "numbikesavailable": 2,
+        "is_installed": "OUI",
+        "is_renting": "OUI",
+        "mechanical": 1,
+        "stationcode": "8055",
+        "dist": "440.768573614",
+        "coordonnees_geo": [
+          48.8781999289,
+          2.29928601887
+        ],
+        "numdocksavailable": 29,
+        "duedate": "2020-10-10T20:06:46+00:00",
+        "is_returning": "OUI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.29928601887,
+          48.8781999289
+        ]
+      },
+      "record_timestamp": "2020-10-10T20:44:08.093000+00:00"
+    },
+    {
+      "datasetid": "velib-disponibilite-en-temps-reel",
+      "recordid": "40f5594b439f92542860cef47f56828267253da1",
+      "fields": {
+        "ebike": 5,
+        "capacity": 46,
+        "name": "Place des Ternes",
+        "nom_arrondissement_communes": "Paris",
+        "numbikesavailable": 8,
+        "is_installed": "OUI",
+        "is_renting": "OUI",
+        "mechanical": 3,
+        "stationcode": "17045",
+        "dist": "465.25146712",
+        "coordonnees_geo": [
+          48.8784386312,
+          2.29772776365
+        ],
+        "numdocksavailable": 38,
+        "duedate": "2020-10-10T20:06:13+00:00",
+        "is_returning": "OUI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.29772776365,
+          48.8784386312
+        ]
+      },
+      "record_timestamp": "2020-10-10T20:44:08.093000+00:00"
+    },
+    {
+      "datasetid": "velib-disponibilite-en-temps-reel",
+      "recordid": "d562b678332b382cfb86d7e0a2516badb1f36cb0",
+      "fields": {
+        "ebike": 10,
+        "capacity": 37,
+        "name": "Pierre Demours - Laugier",
+        "nom_arrondissement_communes": "Paris",
+        "numbikesavailable": 18,
+        "is_installed": "OUI",
+        "is_renting": "OUI",
+        "mechanical": 8,
+        "stationcode": "17029",
+        "dist": "465.59781002",
+        "coordonnees_geo": [
+          48.8813072,
+          2.294846
+        ],
+        "numdocksavailable": 19,
+        "duedate": "2020-10-10T20:06:28+00:00",
+        "is_returning": "OUI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.294846,
+          48.8813072
+        ]
+      },
+      "record_timestamp": "2020-10-10T20:44:08.093000+00:00"
+    },
+    {
+      "datasetid": "velib-disponibilite-en-temps-reel",
+      "recordid": "54ccbd7b3660995d6d1674059620c9adb96ac476",
+      "fields": {
+        "ebike": 1,
+        "capacity": 23,
+        "name": "Pereire - Rennequin",
+        "nom_arrondissement_communes": "Paris",
+        "numbikesavailable": 8,
+        "is_installed": "OUI",
+        "is_renting": "OUI",
+        "mechanical": 7,
+        "stationcode": "17030",
+        "dist": "469.042767389",
+        "coordonnees_geo": [
+          48.8836478289,
+          2.29524470866
+        ],
+        "numdocksavailable": 15,
+        "duedate": "2020-10-10T20:02:34+00:00",
+        "is_returning": "OUI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2.29524470866,
+          48.8836478289
+        ]
+      },
+      "record_timestamp": "2020-10-10T20:44:08.093000+00:00"
+    }
+  ]
+}
